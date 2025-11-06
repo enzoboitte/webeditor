@@ -1,0 +1,64 @@
+{
+  "name": "Todo List",
+  "icon": "✅",
+  "category": "ui",
+  "parameters": {
+    "title": {
+      "type": "text",
+      "default": "Ma liste de tâches",
+      "label": "Titre"
+    },
+    "showCompleted": {
+      "type": "checkbox",
+      "default": true,
+      "label": "Afficher les tâches terminées"
+    },
+    "theme": {
+      "type": "select",
+      "options": ["light", "dark", "colorful"],
+      "default": "light",
+      "label": "Thème"
+    }
+  },
+  "html": "<div class='{{CLASS}} todo-list'>\n  <h3>{{title}}</h3>\n  <div class='todo-input'>\n    <input type='text' placeholder='Nouvelle tâche...' />\n    <button class='btn-add'>Ajouter</button>\n  </div>\n  <div class='todo-items' id='{{ID}}-items'>\n    <!-- Items chargés via API -->\n  </div>\n</div>",
+  "css": {
+    "background": "{{THEME_BG}}",
+    "color": "{{THEME_COLOR}}",
+    "padding": "20px",
+    "borderRadius": "12px",
+    "boxShadow": "0 4px 16px rgba(0,0,0,0.1)",
+    "width": "400px",
+    "height": "auto",
+    "border": "{{THEME_BORDER}}"
+  },
+  "macros": {
+    "THEME_BG": {
+      "light": "#ffffff",
+      "dark": "#2d2d2d",
+      "colorful": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+    },
+    "THEME_COLOR": {
+      "light": "#333333",
+      "dark": "#ffffff",
+      "colorful": "#ffffff"
+    },
+    "THEME_BORDER": {
+      "light": "1px solid #e0e0e0",
+      "dark": "1px solid #404040",
+      "colorful": "none"
+    }
+  },
+  "actions": [
+    {
+      "event": "load",
+      "type": "api",
+      "label": "Charger la liste de tâches",
+      "required": true
+    },
+    {
+      "event": "click",
+      "type": "api",
+      "label": "Ajouter/Modifier une tâche"
+    }
+  ]
+}

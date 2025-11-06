@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditeur Web - Version Modulaire</title>
+    
+    <!-- Bibliothèques externes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="G_sTopBar">
+        <div class="c-topbar-logo">
+            <i class="fas fa-palette"></i>
+            <span class="c-logo-text">Web Editor</span>
+        </div>
+        
+        <div class="c-topbar-separator"></div>
+        
+        <div class="c-topbar-group">
+            <button class="c-btn c-btn-primary" onclick="G_cApp.F_vImportJSON()" title="Importer un projet JSON">
+                <i class="fas fa-folder-open"></i> Importer
+            </button>
+            <div class="c-btn-group">
+                <button class="c-btn c-btn-secondary" onclick="G_cApp.F_vExportJSON()" title="Exporter en JSON">
+                    <i class="fas fa-file-code"></i> JSON
+                </button>
+                <button class="c-btn c-btn-secondary" onclick="G_cApp.F_vExportZIP()" title="Exporter en ZIP">
+                    <i class="fas fa-file-archive"></i> ZIP
+                </button>
+            </div>
+        </div>
+        
+        <div class="c-topbar-separator"></div>
+        
+        <div class="c-topbar-group">
+            <button class="c-btn c-btn-danger" onclick="G_cApp.F_vClear()" title="Effacer tout le projet">
+                <i class="fas fa-trash"></i> Effacer
+            </button>
+        </div>
+        
+        <div class="c-topbar-spacer"></div>
+        
+        <div class="c-topbar-group">
+            <button class="c-btn" onclick="f_vOpenGraphPopup()" title="Visualiser le graphe des pages et interactions">
+                <i class="fas fa-project-diagram"></i> Graphe
+            </button>
+        </div>
+        
+        <div class="c-topbar-group">
+            <button class="c-btn" onclick="G_cApp.f_vOpenDesignTokens()" title="Palette de design tokens">
+                <i class="fas fa-swatchbook"></i> Tokens
+            </button>
+        </div>
+        
+        <div class="c-topbar-separator"></div>
+        
+        <!-- Toggle Mode Composant -->
+        <div class="c-topbar-group">
+            <div style="display: flex; align-items: center; gap: 10px; padding: 5px 10px; background: rgba(0, 120, 212, 0.1); border-radius: 6px;">
+                <label class="c-toggle-switch" title="Activer/désactiver le mode création de composants">
+                    <input type="checkbox" id="G_sComponentModeToggle" onchange="G_cApp.f_vToggleComponentMode(this.checked)">
+                    <span class="c-toggle-slider"></span>
+                </label>
+                <span style="font-size: 13px; color: #999; white-space: nowrap;">
+                    <i class="fas fa-cube"></i> Mode Composant
+                </span>
+            </div>
+        </div>
+        
+        <div class="c-topbar-separator"></div>
+        
+        <!-- Bouton sauvegarde composant (visible uniquement en mode création) -->
+        <div class="c-topbar-group" id="G_sComponentSaveBtn" style="display: none;">
+            <button class="c-btn c-btn-success" onclick="G_cApp.f_vSaveCurrentComponent()" title="Sauvegarder le composant actuel">
+                <i class="fas fa-save"></i> Sauvegarder Composant
+            </button>
+        </div>
+        
+        <div class="c-topbar-group">
+            <div class="c-topbar-stats" id="G_sTopBarStats">
+                <span class="c-stat-label">Éléments:</span>
+                <span class="c-stat-value" id="G_sElementCount">0</span>
+            </div>
+        </div>
+        
+        <div class="c-topbar-group">
+            <button class="c-btn c-btn-info" onclick="G_cApp.f_vShowShortcuts()" title="Afficher les raccourcis clavier">
+                <i class="fas fa-keyboard"></i> Raccourcis
+            </button>
+        </div>
+        
+        <input type="file" id="G_sFileInput" accept=".json" style="display:none">
+    </div>
+    
+    <div id="G_sContainer">
+        <div id="G_sLeftPanel">
+            <div id="G_sLeftPanelTabs">
+                <button class="c-tab active" onclick="G_cApp.F_vSwitchTab('components')" id="G_sTabComponents"><i class="fas fa-cubes"></i> Composants</button>
+                <button class="c-tab" onclick="G_cApp.F_vSwitchTab('tree')" id="G_sTabTree"><i class="fas fa-sitemap"></i> Arborescence</button>
+                <button class="c-tab" onclick="G_cApp.F_vSwitchTab('pages')" id="G_sTabPages"><i class="fas fa-file-alt"></i> Pages</button>
+                <button class="c-tab" onclick="G_cApp.F_vSwitchTab('mycomponents')" id="G_sTabMyComponents" style="display: none;"><i class="fas fa-cube"></i> Mes Composants</button>
+            </div>
+            <div id="G_sComponentLibrary" class="active">
+                <h3 style="margin-bottom: 15px;">Chargement...</h3>
+            </div>
+            <div id="G_sTreeView"></div>
+            <div id="G_sPagesView"></div>
+            <div id="G_sMyComponentsView"></div>
+        </div>
+        
+        <div id="G_sCanvas">
+            <div id="G_sWorkspace">
+                <div id="G_sGridOverlay"></div>
+            </div>
+            <div id="G_sWorkspaceEmpty" class="c-workspace-empty">
+                <div class="c-workspace-empty-card">
+                    <div class="c-workspace-empty-icon" id="G_sEmptyIcon">📄</div>
+                    <h2 id="G_sEmptyTitle">Aucune page disponible</h2>
+                    <p id="G_sEmptyDescription">Créez votre première page pour commencer à concevoir votre site.</p>
+                    <button class="c-btn c-btn-primary" id="G_sEmptyAction" onclick="G_cApp.f_vCreatePage()">+ Nouvelle page</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="G_sRightPanelResizer" class="c-panel-resizer" title="Glisser pour redimensionner"></div>
+        
+        <div id="G_sRightPanel">
+            <div id="G_sRightPanelTabs">
+                <button class="c-tab active" data-tab="properties" onclick="G_cApp.f_vSwitchRightTab('properties')"><i class="fas fa-sliders-h"></i> Propriétés</button>
+                <button class="c-tab" data-tab="tokens" onclick="G_cApp.f_vSwitchRightTab('tokens')"><i class="fas fa-swatchbook"></i> Tokens</button>
+                <button class="c-tab" data-tab="variables" onclick="G_cApp.f_vSwitchRightTab('variables')"><i class="fas fa-code"></i> Variables CSS</button>
+            </div>
+            <div id="G_sProperties" class="c-right-tab-content active"></div>
+            <div id="G_sDesignTokensPanel" class="c-right-tab-content" style="display: none;"></div>
+            <div id="G_sCSSVariablesPanel" class="c-right-tab-content" style="display: none;"></div>
+        </div>
+    </div>
+
+    <div id="G_sAPIModal" class="c-modal">
+        <div class="c-modal-content">
+            <span class="c-close" onclick="G_cApp.F_vCloseAPIModal()">&times;</span>
+            <h2>Gestion des Actions API</h2>
+            <div id="G_sAPIActionsList"></div>
+            <button class="c-btn c-btn-add" onclick="G_cApp.F_vAddAPIAction()">+ Ajouter une action</button>
+        </div>
+    </div>
+
+    <div id="G_sFormEditorModal" class="c-modal">
+        <div class="c-modal-content">
+            <span class="c-close" onclick="G_cApp.f_vCloseFormEditor()">&times;</span>
+            <h2>Éditeur de Formulaire</h2>
+            <div id="G_sFormFieldsList"></div>
+            <button class="c-btn c-btn-add" onclick="G_cApp.f_vAddFormField()">+ Ajouter un champ</button>
+            <div style="margin-top: 20px; text-align: right;">
+                <button class="c-btn" onclick="G_cApp.f_vApplyFormChanges()">Appliquer</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="G_sShortcutsModal" class="c-modal">
+        <div class="c-modal-content" style="max-width: 700px;">
+            <span class="c-close" onclick="G_cApp.f_vCloseShortcuts()">&times;</span>
+            <h2>⌨️ Raccourcis Clavier</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                <div>
+                    <h3 style="color: #0078d4; margin-bottom: 10px;">Ajouter des composants</h3>
+                    <div style="font-size: 13px; line-height: 1.8;">
+                        <div><kbd>Ctrl+Shift+D</kbd> → DIV</div>
+                        <div><kbd>Ctrl+Shift+B</kbd> → Button</div>
+                        <div><kbd>Ctrl+Shift+I</kbd> → Input</div>
+                        <div><kbd>Ctrl+Shift+T</kbd> → Textarea</div>
+                        <div><kbd>Ctrl+Shift+P</kbd> → Paragraph</div>
+                        <div><kbd>Ctrl+Shift+H</kbd> → Heading</div>
+                        <div><kbd>Ctrl+Shift+F</kbd> → Form</div>
+                        <div><kbd>Ctrl+Shift+A</kbd> → Link</div>
+                        <div><kbd>Ctrl+Shift+L</kbd> → Liste UL</div>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color: #0078d4; margin-bottom: 10px;">Actions</h3>
+                    <div style="font-size: 13px; line-height: 1.8;">
+                        <div><kbd>Delete</kbd> → Supprimer</div>
+                        <div><kbd>Ctrl+A</kbd> → Sélectionner tout</div>
+                        <div><kbd>Ctrl+C</kbd> → Copier</div>
+                        <div><kbd>Ctrl+V</kbd> → Coller</div>
+                        <div><kbd>Ctrl+D</kbd> → Dupliquer</div>
+                        <div><kbd>Ctrl+Z</kbd> → Annuler (Undo)</div>
+                        <div><kbd>Ctrl+Shift+Z</kbd> → Refaire (Redo)</div>
+                        <div><kbd>Ctrl+Click</kbd> → Multi-sélection</div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #444;">
+                <h3 style="color: #0078d4; margin-bottom: 10px;">Déplacement d'éléments</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 13px; line-height: 1.8;">
+                    <div><kbd>←→↑↓</kbd> → Déplacer 1px (guides visuels)</div>
+                    <div><kbd>Shift+←→↑↓</kbd> → Déplacer 10px</div>
+                    <div><kbd>Drag</kbd> → Déplacement avec snap</div>
+                    <div><kbd>Shift+Drag</kbd> → Drag sans snap</div>
+                </div>
+            </div>
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #444;">
+                <h3 style="color: #0078d4; margin-bottom: 10px;">Navigation du Canvas</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 13px; line-height: 1.8;">
+                    <div><kbd>Ctrl+Molette</kbd> → Zoom/Dézoom</div>
+                    <div><kbd>Ctrl+Shift+Drag</kbd> → Déplacer la vue (Pan)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Graph Visualizer Popup -->
+    <div id="G_sGraphPopup" class="c-popup-overlay">
+        <div class="c-popup-content">
+            <div class="c-graph-header">
+                <h2><i class="fas fa-project-diagram"></i> Visualisation des Pages et Interactions</h2>
+                <div class="c-graph-controls">
+                    <label for="G_sGraphComponentSelect">Composant source</label>
+                    <select id="G_sGraphComponentSelect" disabled>
+                        <option value="">Sélectionnez une page</option>
+                    </select>
+                </div>
+                <div class="c-graph-actions">
+                    <button onclick="G_cGraphVisualizer.F_vRefresh()">
+                        <i class="fas fa-sync"></i> Rafraîchir
+                    </button>
+                    <button onclick="f_vCloseGraphPopup()">
+                        <i class="fas fa-times"></i> Fermer
+                    </button>
+                </div>
+            </div>
+            <div class="c-graph-canvas-container">
+                <canvas id="G_sGraphCanvas"></canvas>
+                <div id="G_sGraphDialogContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts modulaires -->
+    <script src="js/ui-templates.js"></script>
+    <script src="js/api-framework.js"></script>
+    <script src="js/element.js"></script>
+    <script src="js/syntax-highlighter.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/features.js"></script>
+    <script src="js/pages.js"></script>
+    <script src="js/graph.js"></script>
+    
+    <script>
+    // Initialisation de l'application
+    const G_cApp = new C_App();
+    window.G_cApp = G_cApp;
+        
+        // Fonctions pour le graphe
+        function f_vOpenGraphPopup() {
+            const l_cPopup = document.getElementById('G_sGraphPopup');
+            l_cPopup.style.display = 'flex';
+            l_cPopup.classList.remove('c-popup-closing');
+            
+            // Forcer un reflow pour que l'animation se déclenche
+            void l_cPopup.offsetWidth;
+            
+            // Initialiser le graphe après un court délai pour l'animation
+            setTimeout(() => {
+                G_cGraphVisualizer.F_vInit('G_sGraphCanvas');
+            }, 100);
+        }
+        
+        function f_vCloseGraphPopup() {
+            const l_cPopup = document.getElementById('G_sGraphPopup');
+            l_cPopup.classList.add('c-popup-closing');
+            
+            setTimeout(() => {
+                l_cPopup.style.display = 'none';
+                l_cPopup.classList.remove('c-popup-closing');
+            }, 200);
+        }
+        
+        // Fermer la popup en cliquant sur l'overlay
+        document.addEventListener('click', (e) => {
+            if (e.target.id === 'G_sGraphPopup') {
+                f_vCloseGraphPopup();
+            }
+        });
+    </script>
+</body>
+</html>

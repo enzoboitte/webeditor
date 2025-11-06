@@ -1,0 +1,40 @@
+{
+  "name": "Modal",
+  "icon": "🪟",
+  "category": "ui",
+  "parameters": {
+    "title": {
+      "type": "text",
+      "default": "Modal Title",
+      "label": "Titre"
+    },
+    "content": {
+      "type": "textarea",
+      "default": "Modal content...",
+      "label": "Contenu"
+    },
+    "showClose": {
+      "type": "checkbox",
+      "default": true,
+      "label": "Afficher bouton fermer"
+    }
+  },
+  "html": "<div class='{{CLASS}}'>\n  <h2>{{title}}</h2>\n  <p>{{content}}</p>\n  <button class='close-btn'>Close</button>\n</div>",
+  "css": {
+    "background": "#fff",
+    "borderRadius": "8px",
+    "boxShadow": "0 4px 16px rgba(0,0,0,0.2)",
+    "padding": "30px",
+    "width": "400px",
+    "height": "auto",
+    "position": "relative"
+  },
+  "macros": {},
+  "actions": [
+    {
+      "event": "load",
+      "type": "api",
+      "label": "Charger contenu"
+    }
+  ]
+}

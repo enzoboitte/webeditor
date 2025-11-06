@@ -1,0 +1,67 @@
+{
+  "name": "User Profile",
+  "icon": "👤",
+  "category": "ui",
+  "parameters": {
+    "username": {
+      "type": "text",
+      "default": "John Doe",
+      "label": "Nom d'utilisateur"
+    },
+    "avatarUrl": {
+      "type": "text",
+      "default": "https://via.placeholder.com/100",
+      "label": "URL Avatar"
+    },
+    "bio": {
+      "type": "textarea",
+      "default": "Développeur passionné",
+      "label": "Biographie"
+    },
+    "theme": {
+      "type": "select",
+      "options": ["light", "dark"],
+      "default": "light",
+      "label": "Thème"
+    }
+  },
+  "html": "<div class='{{CLASS}} user-profile'>\n  <img src='{{avatarUrl}}' class='avatar' />\n  <h3>{{username}}</h3>\n  <p>{{bio}}</p>\n  <button class='btn-follow'>Suivre</button>\n</div>",
+  "css": {
+    "background": "{{THEME_BG}}",
+    "color": "{{THEME_COLOR}}",
+    "padding": "20px",
+    "borderRadius": "12px",
+    "boxShadow": "0 4px 12px rgba(0,0,0,0.1)",
+    "width": "300px",
+    "height": "auto",
+    "textAlign": "center"
+  },
+  "macros": {
+    "THEME_BG": {
+      "light": "#ffffff",
+      "dark": "#2d2d2d"
+    },
+    "THEME_COLOR": {
+      "light": "#333333",
+      "dark": "#ffffff"
+    }
+  },
+  "actions": [
+    {
+      "event": "load",
+      "type": "api",
+      "label": "Charger profil utilisateur",
+      "required": true
+    },
+    {
+      "event": "click",
+      "type": "api",
+      "label": "Suivre l'utilisateur"
+    },
+    {
+      "event": "dblclick",
+      "type": "api",
+      "label": "Voir détails complets"
+    }
+  ]
+}

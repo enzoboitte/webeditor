@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Syntax Highlighter</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        body {
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .demo-section {
+            margin-bottom: 40px;
+            background: #252525;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .demo-controls {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .demo-controls select {
+            padding: 8px 12px;
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        h1 {
+            color: #0078d4;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .info {
+            background: #2a2a2a;
+            padding: 10px 15px;
+            border-left: 3px solid #667eea;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        
+        button {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        button:hover {
+            opacity: 0.9;
+        }
+        
+        #editor1-container, #editor2-container {
+            min-height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1>🎨 Syntax Highlighter - Démonstration</h1>
+        
+        <!-- Démo 1 : Éditeur simple avec sélecteur de langage -->
+        <div class="demo-section">
+            <h2>Démo 1 : Éditeur avec changement de langage</h2>
+            <div class="info">
+                Sélectionnez un langage et tapez du code. La coloration syntaxique s'applique en temps réel !
+            </div>
+            <div class="demo-controls">
+                <label>Langage:</label>
+                <select id="languageSelect">
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="json">JSON</option>
+                    <option value="python">Python</option>
+                    <option value="php">PHP</option>
+                </select>
+                <button onclick="loadExample()">Charger un exemple</button>
+                <button onclick="getCode()">Récupérer le code</button>
+            </div>
+            <div id="editor1-container"></div>
+        </div>
+        
+        <!-- Démo 2 : Affichage simple (non éditable) -->
+        <div class="demo-section">
+            <h2>Démo 2 : Affichage colorisé (non éditable)</h2>
+            <div class="info">
+                Utilisez f_sHighlight() pour simplement coloriser du code sans éditeur.
+            </div>
+            <div class="c-syntax-editor" id="displayDemo" style="min-height: 150px;"></div>
+        </div>
+        
+        <!-- Démo 3 : Règles personnalisées -->
+        <div class="demo-section">
+            <h2>Démo 3 : Règles personnalisées</h2>
+            <div class="info">
+                Ajoutez vos propres règles de coloration avec f_vAddCustomRule()
+            </div>
+            <div id="editor2-container"></div>
+        </div>
+    </div>
+
+    <script src="js/syntax-highlighter.js"></script>
+    <script>
+        // Démo 1 : Éditeur avec changement de langage
+        let editor1;
+        let highlighter1 = new C_SyntaxHighlighter('html');
+        
+        const examples = {
+            html: `<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma Page</title>
+</head>
+<body>
+    <!-- Commentaire HTML -->
+    <div class="container">
+        <h1 id="title">Bonjour le monde !</h1>
+        <p class="text">Ceci est un paragraphe.</p>
+    </div>
+</body>
+</html>`,
+            css: `/* Styles principaux */
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #1e1e1e;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#title {
+    color: #667eea;
+    font-size: 2em !important;
+    margin-bottom: 1rem;
+}
+
+.text {
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}`,
+            javascript: `// Fonction principale
+function calculateTotal(items) {
+    const prices = items.map(item => item.price);
+    const total = prices.reduce((sum, price) => sum + price, 0);
+    return total;
+}
+
+// Classe utilisateur
+class User {
+    constructor(name, email) {
+        this.name = name;
+        this.email = email;
+    }
+    
+    async fetchData() {
+        try {
+            const response = await fetch('/api/user');
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Erreur:', error);
+            throw error;
+        }
+    }
+}
+
+const user = new User("Alice", "alice@example.com");`,
+            json: `{
+    "name": "Mon Projet",
+    "version": "1.0.0",
+    "active": true,
+    "count": 42,
+    "data": null,
+    "settings": {
+        "theme": "dark",
+        "language": "fr",
+        "notifications": true
+    },
+    "items": [
+        "item1",
+        "item2",
+        "item3"
+    ]
+}`,
+            python: `# Fonction de calcul
+def fibonacci(n):
+    """Calcule la suite de Fibonacci"""
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+# Classe exemple
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def greet(self):
+        return f"Bonjour, je suis {self.name}"
+
+# Utilisation
+person = Person("Alice", 25)
+print(person.greet())
+
+# Compréhension de liste
+squares = [x**2 for x in range(10) if x % 2 == 0]`,
+            php: `<?php
+// Fonction de connexion
+function connectDB() {
+    $host = "localhost";
+    $user = "root";
+    $pass = "";
+    $db = "mydb";
+    
+    try {
+        $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+        return $conn;
+    } catch(PDOException $e) {
+        echo "Erreur: " . $e->getMessage();
+        return null;
+    }
+}
+
+// Classe utilisateur
+class User {
+    private $name;
+    protected $email;
+    public $id;
+    
+    public function __construct($name, $email) {
+        $this->name = $name;
+        $this->email = $email;
+    }
+    
+    public function getName() {
+        return $this->name;
+    }
+}
+
+$user = new User("Alice", "alice@example.com");
+echo $user->getName();
+?>`
+        };
+        
+        // Initialiser l'éditeur 1
+        editor1 = highlighter1.f_cCreateEditor('editor1-container', examples.html);
+        
+        // Changer de langage
+        document.getElementById('languageSelect').addEventListener('change', (e) => {
+            const lang = e.target.value;
+            highlighter1.f_vSetLanguage(lang);
+            editor1.setValue(examples[lang]);
+        });
+        
+        // Charger un exemple
+        function loadExample() {
+            const lang = document.getElementById('languageSelect').value;
+            editor1.setValue(examples[lang]);
+        }
+        
+        // Récupérer le code
+        function getCode() {
+            const code = editor1.getValue();
+            alert('Code récupéré (' + code.length + ' caractères):\n\n' + code.substring(0, 200) + '...');
+        }
+        
+        // Démo 2 : Affichage simple
+        const highlighter2 = new C_SyntaxHighlighter('css');
+        const displayDemo = document.getElementById('displayDemo');
+        displayDemo.innerHTML = highlighter2.f_sHighlight(`/* Exemple de CSS colorisé */
+.demo {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    border-radius: 8px;
+    color: white !important;
+}`);
+        
+        // Démo 3 : Règles personnalisées
+        const highlighter3 = new C_SyntaxHighlighter('javascript');
+        
+        // Ajouter règle pour colorer TODO
+        highlighter3.f_vAddCustomRule({
+            pattern: /(TODO:.*$)/gm,
+            class: 'c-syntax-css-important'
+        });
+        
+        // Ajouter règle pour colorer FIXME
+        highlighter3.f_vAddCustomRule({
+            pattern: /(FIXME:.*$)/gm,
+            class: 'c-syntax-css-important'
+        });
+        
+        const editor2 = highlighter3.f_cCreateEditor('editor2-container', `// Exemple avec règles personnalisées
+function demo() {
+    // TODO: Implémenter cette fonction
+    const value = 42;
+    
+    // FIXME: Corriger ce bug
+    console.log(value);
+    
+    return value;
+}
+
+demo();`);
+        
+        console.log('Langages supportés:', C_SyntaxHighlighter.F_lGetSupportedLanguages());
+    </script>
+</body>
+</html>

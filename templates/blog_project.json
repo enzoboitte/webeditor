@@ -1,0 +1,1016 @@
+{
+  "version": "2.3",
+  "body": {
+    "style": {
+      "background": "#f9fafb",
+      "margin": "0",
+      "padding": "0",
+      "fontFamily": "Georgia, 'Times New Roman', serif"
+    },
+    "className": "",
+    "pseudoStyles": {
+      "hover": {},
+      "active": {},
+      "focus": {},
+      "before": {},
+      "after": {}
+    }
+  },
+  "pages": [
+    {
+      "id": "page_home",
+      "title": "Home",
+      "route": "/",
+      "icon": "📝",
+      "favicon": "favicon.ico",
+      "isMainPage": true,
+      "elements": [
+        {
+          "id": "header_blog",
+          "type": "navbar",
+          "attributes": {
+            "style": {
+              "background": "#fff",
+              "borderBottom": "1px solid #e5e7eb",
+              "padding": "25px 80px",
+              "width": "100%",
+              "display": "flex",
+              "alignItems": "center",
+              "justifyContent": "space-between",
+              "position": "sticky",
+              "top": "0",
+              "zIndex": "1000"
+            },
+            "className": "",
+            "innerHTML": "<div style='font-size: 32px; font-weight: bold; color: #1f2937;'>✍️ The Creative Blog</div>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "nav_home",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#6366f1",
+                  "fontWeight": "600",
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                  "borderBottom": "2px solid #6366f1"
+                },
+                "className": "",
+                "innerHTML": "Home"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_home",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "color": "#4f46e5"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "nav_articles",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#4b5563",
+                  "fontWeight": "500",
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                  "marginLeft": "15px"
+                },
+                "className": "",
+                "innerHTML": "Articles"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_articles",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "color": "#6366f1",
+                  "borderBottom": "2px solid #6366f1"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "nav_about",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#4b5563",
+                  "fontWeight": "500",
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                  "marginLeft": "15px"
+                },
+                "className": "",
+                "innerHTML": "About"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_about",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "color": "#6366f1",
+                  "borderBottom": "2px solid #6366f1"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "hero_blog",
+          "type": "div",
+          "attributes": {
+            "style": {
+              "background": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              "padding": "120px 80px",
+              "textAlign": "center",
+              "color": "#fff"
+            },
+            "className": "",
+            "innerHTML": "<h1 style='font-size: 56px; margin: 0 0 20px 0; font-weight: 700;'>Welcome to Our Blog</h1><p style='font-size: 22px; margin: 0; opacity: 0.95; max-width: 600px; margin: 0 auto;'>Discover stories, thinking, and expertise from writers on any topic.</p>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": []
+        },
+        {
+          "id": "featured_section",
+          "type": "div",
+          "attributes": {
+            "style": {
+              "padding": "80px",
+              "maxWidth": "1200px",
+              "margin": "0 auto"
+            },
+            "className": "",
+            "innerHTML": "<h2 style='margin: 0 0 50px 0; font-size: 38px; color: #1f2937; text-align: center;'>Featured Articles</h2>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "featured_grid",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "display": "grid",
+                  "gridTemplateColumns": "1fr",
+                  "gap": "40px"
+                },
+                "className": "",
+                "innerHTML": ""
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [],
+              "pseudoStyles": {
+                "hover": {},
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": [
+                {
+                  "id": "featured_article_1",
+                  "type": "card",
+                  "attributes": {
+                    "style": {
+                      "background": "#fff",
+                      "borderRadius": "16px",
+                      "overflow": "hidden",
+                      "cursor": "pointer",
+                      "transition": "all 0.3s ease",
+                      "boxShadow": "0 4px 16px rgba(0,0,0,0.08)",
+                      "display": "grid",
+                      "gridTemplateColumns": "400px 1fr",
+                      "gap": "0"
+                    },
+                    "className": "",
+                    "innerHTML": "<div style='background: linear-gradient(135deg, #667eea, #764ba2); height: 300px; display: flex; align-items: center; justify-content: center; font-size: 72px;'>🚀</div><div style='padding: 40px;'><div style='font-size: 12px; color: #6366f1; font-weight: 600; margin-bottom: 12px; font-family: sans-serif; text-transform: uppercase; letter-spacing: 1px;'>Technology</div><h3 style='margin: 0 0 15px 0; font-size: 32px; color: #1f2937; line-height: 1.3;'>The Future of Web Development</h3><p style='color: #6b7280; margin: 0 0 20px 0; font-size: 16px; line-height: 1.7; font-family: sans-serif;'>Exploring the latest trends and technologies that are shaping the future of web development in 2025 and beyond.</p><div style='display: flex; align-items: center; gap: 15px; font-family: sans-serif;'><div style='width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%;'></div><div><div style='font-size: 14px; font-weight: 600; color: #1f2937;'>John Smith</div><div style='font-size: 12px; color: #9ca3af;'>Nov 6, 2025 · 5 min read</div></div></div></div>"
+                  },
+                  "parameters": {},
+                  "apiActions": [],
+                  "m_cNavigationLinks": [
+                    {
+                      "targetPage": "page_article_1",
+                      "action": "click"
+                    }
+                  ],
+                  "pseudoStyles": {
+                    "hover": {
+                      "transform": "translateY(-5px)",
+                      "boxShadow": "0 12px 32px rgba(0,0,0,0.12)"
+                    },
+                    "active": {},
+                    "focus": {},
+                    "before": {},
+                    "after": {}
+                  },
+                  "children": []
+                },
+                {
+                  "id": "recent_articles",
+                  "type": "div",
+                  "attributes": {
+                    "style": {
+                      "display": "grid",
+                      "gridTemplateColumns": "repeat(2, 1fr)",
+                      "gap": "30px",
+                      "marginTop": "20px"
+                    },
+                    "className": "",
+                    "innerHTML": ""
+                  },
+                  "parameters": {},
+                  "apiActions": [],
+                  "m_cNavigationLinks": [],
+                  "pseudoStyles": {
+                    "hover": {},
+                    "active": {},
+                    "focus": {},
+                    "before": {},
+                    "after": {}
+                  },
+                  "children": [
+                    {
+                      "id": "article_2",
+                      "type": "card",
+                      "attributes": {
+                        "style": {
+                          "background": "#fff",
+                          "borderRadius": "12px",
+                          "overflow": "hidden",
+                          "cursor": "pointer",
+                          "transition": "all 0.3s ease",
+                          "boxShadow": "0 2px 8px rgba(0,0,0,0.08)"
+                        },
+                        "className": "",
+                        "innerHTML": "<div style='background: linear-gradient(135deg, #f093fb, #f5576c); height: 200px; display: flex; align-items: center; justify-content: center; font-size: 56px;'>🎨</div><div style='padding: 25px;'><div style='font-size: 11px; color: #f5576c; font-weight: 600; margin-bottom: 10px; font-family: sans-serif; text-transform: uppercase; letter-spacing: 1px;'>Design</div><h3 style='margin: 0 0 12px 0; font-size: 22px; color: #1f2937; line-height: 1.3;'>Minimalist Design Principles</h3><p style='color: #6b7280; margin: 0 0 15px 0; font-size: 14px; line-height: 1.6; font-family: sans-serif;'>Learn how to create beautiful, clean designs with minimal elements.</p><div style='font-size: 12px; color: #9ca3af; font-family: sans-serif;'>Nov 5, 2025 · 3 min read</div></div>"
+                      },
+                      "parameters": {},
+                      "apiActions": [],
+                      "m_cNavigationLinks": [
+                        {
+                          "targetPage": "page_articles",
+                          "action": "click"
+                        }
+                      ],
+                      "pseudoStyles": {
+                        "hover": {
+                          "transform": "translateY(-5px)",
+                          "boxShadow": "0 8px 24px rgba(0,0,0,0.12)"
+                        },
+                        "active": {},
+                        "focus": {},
+                        "before": {},
+                        "after": {}
+                      },
+                      "children": []
+                    },
+                    {
+                      "id": "article_3",
+                      "type": "card",
+                      "attributes": {
+                        "style": {
+                          "background": "#fff",
+                          "borderRadius": "12px",
+                          "overflow": "hidden",
+                          "cursor": "pointer",
+                          "transition": "all 0.3s ease",
+                          "boxShadow": "0 2px 8px rgba(0,0,0,0.08)"
+                        },
+                        "className": "",
+                        "innerHTML": "<div style='background: linear-gradient(135deg, #4facfe, #00f2fe); height: 200px; display: flex; align-items: center; justify-content: center; font-size: 56px;'>💡</div><div style='padding: 25px;'><div style='font-size: 11px; color: #00f2fe; font-weight: 600; margin-bottom: 10px; font-family: sans-serif; text-transform: uppercase; letter-spacing: 1px;'>Productivity</div><h3 style='margin: 0 0 12px 0; font-size: 22px; color: #1f2937; line-height: 1.3;'>10 Tips for Better Productivity</h3><p style='color: #6b7280; margin: 0 0 15px 0; font-size: 14px; line-height: 1.6; font-family: sans-serif;'>Boost your productivity with these proven tips and techniques.</p><div style='font-size: 12px; color: #9ca3af; font-family: sans-serif;'>Nov 4, 2025 · 4 min read</div></div>"
+                      },
+                      "parameters": {},
+                      "apiActions": [],
+                      "m_cNavigationLinks": [
+                        {
+                          "targetPage": "page_articles",
+                          "action": "click"
+                        }
+                      ],
+                      "pseudoStyles": {
+                        "hover": {
+                          "transform": "translateY(-5px)",
+                          "boxShadow": "0 8px 24px rgba(0,0,0,0.12)"
+                        },
+                        "active": {},
+                        "focus": {},
+                        "before": {},
+                        "after": {}
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "description": "The Creative Blog - Stories and insights",
+        "keywords": "blog, articles, stories"
+      }
+    },
+    {
+      "id": "page_articles",
+      "title": "All Articles",
+      "route": "/articles",
+      "icon": "📚",
+      "elements": [
+        {
+          "id": "header_articles",
+          "type": "navbar",
+          "attributes": {
+            "style": {
+              "background": "#fff",
+              "borderBottom": "1px solid #e5e7eb",
+              "padding": "25px 80px",
+              "width": "100%",
+              "display": "flex",
+              "alignItems": "center",
+              "justifyContent": "space-between",
+              "position": "sticky",
+              "top": "0",
+              "zIndex": "1000"
+            },
+            "className": "",
+            "innerHTML": "<div style='font-size: 32px; font-weight: bold; color: #1f2937;'>✍️ The Creative Blog</div>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "nav_home_articles",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#4b5563",
+                  "fontWeight": "500",
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+                },
+                "className": "",
+                "innerHTML": "Home"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_home",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "color": "#6366f1"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "nav_articles_active",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#6366f1",
+                  "fontWeight": "600",
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                  "marginLeft": "15px",
+                  "borderBottom": "2px solid #6366f1"
+                },
+                "className": "",
+                "innerHTML": "Articles"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_articles",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "color": "#4f46e5"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "nav_about_articles",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#4b5563",
+                  "fontWeight": "500",
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                  "marginLeft": "15px"
+                },
+                "className": "",
+                "innerHTML": "About"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_about",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "color": "#6366f1"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "articles_content",
+          "type": "div",
+          "attributes": {
+            "style": {
+              "padding": "60px 80px",
+              "maxWidth": "1200px",
+              "margin": "0 auto"
+            },
+            "className": "",
+            "innerHTML": "<h1 style='margin: 0 0 50px 0; font-size: 48px; color: #1f2937;'>All Articles</h1>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "articles_list",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "display": "flex",
+                  "flexDirection": "column",
+                  "gap": "30px"
+                },
+                "className": "",
+                "innerHTML": ""
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [],
+              "pseudoStyles": {
+                "hover": {},
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": [
+                {
+                  "id": "article_item_1",
+                  "type": "card",
+                  "attributes": {
+                    "style": {
+                      "background": "#fff",
+                      "borderRadius": "12px",
+                      "padding": "30px",
+                      "cursor": "pointer",
+                      "transition": "all 0.3s ease",
+                      "boxShadow": "0 2px 8px rgba(0,0,0,0.06)",
+                      "borderLeft": "4px solid #667eea"
+                    },
+                    "className": "",
+                    "innerHTML": "<div style='font-size: 11px; color: #6366f1; font-weight: 600; margin-bottom: 10px; font-family: sans-serif; text-transform: uppercase; letter-spacing: 1px;'>Technology</div><h3 style='margin: 0 0 12px 0; font-size: 26px; color: #1f2937; line-height: 1.3;'>The Future of Web Development</h3><p style='color: #6b7280; margin: 0 0 15px 0; font-size: 15px; line-height: 1.7; font-family: sans-serif;'>Exploring the latest trends and technologies that are shaping the future of web development in 2025 and beyond. Learn about the tools and frameworks that will define the next generation of web applications.</p><div style='font-size: 12px; color: #9ca3af; font-family: sans-serif;'>By John Smith · Nov 6, 2025 · 5 min read</div>"
+                  },
+                  "parameters": {},
+                  "apiActions": [],
+                  "m_cNavigationLinks": [
+                    {
+                      "targetPage": "page_article_1",
+                      "action": "click"
+                    }
+                  ],
+                  "pseudoStyles": {
+                    "hover": {
+                      "transform": "translateX(5px)",
+                      "boxShadow": "0 4px 16px rgba(0,0,0,0.1)"
+                    },
+                    "active": {},
+                    "focus": {},
+                    "before": {},
+                    "after": {}
+                  },
+                  "children": []
+                },
+                {
+                  "id": "article_item_2",
+                  "type": "card",
+                  "attributes": {
+                    "style": {
+                      "background": "#fff",
+                      "borderRadius": "12px",
+                      "padding": "30px",
+                      "cursor": "pointer",
+                      "transition": "all 0.3s ease",
+                      "boxShadow": "0 2px 8px rgba(0,0,0,0.06)",
+                      "borderLeft": "4px solid #f5576c"
+                    },
+                    "className": "",
+                    "innerHTML": "<div style='font-size: 11px; color: #f5576c; font-weight: 600; margin-bottom: 10px; font-family: sans-serif; text-transform: uppercase; letter-spacing: 1px;'>Design</div><h3 style='margin: 0 0 12px 0; font-size: 26px; color: #1f2937; line-height: 1.3;'>Minimalist Design Principles</h3><p style='color: #6b7280; margin: 0 0 15px 0; font-size: 15px; line-height: 1.7; font-family: sans-serif;'>Learn how to create beautiful, clean designs with minimal elements. Discover the principles that make minimalist design so effective and timeless.</p><div style='font-size: 12px; color: #9ca3af; font-family: sans-serif;'>By Sarah Johnson · Nov 5, 2025 · 3 min read</div>"
+                  },
+                  "parameters": {},
+                  "apiActions": [],
+                  "m_cNavigationLinks": [],
+                  "pseudoStyles": {
+                    "hover": {
+                      "transform": "translateX(5px)",
+                      "boxShadow": "0 4px 16px rgba(0,0,0,0.1)"
+                    },
+                    "active": {},
+                    "focus": {},
+                    "before": {},
+                    "after": {}
+                  },
+                  "children": []
+                },
+                {
+                  "id": "article_item_3",
+                  "type": "card",
+                  "attributes": {
+                    "style": {
+                      "background": "#fff",
+                      "borderRadius": "12px",
+                      "padding": "30px",
+                      "cursor": "pointer",
+                      "transition": "all 0.3s ease",
+                      "boxShadow": "0 2px 8px rgba(0,0,0,0.06)",
+                      "borderLeft": "4px solid #00f2fe"
+                    },
+                    "className": "",
+                    "innerHTML": "<div style='font-size: 11px; color: #00f2fe; font-weight: 600; margin-bottom: 10px; font-family: sans-serif; text-transform: uppercase; letter-spacing: 1px;'>Productivity</div><h3 style='margin: 0 0 12px 0; font-size: 26px; color: #1f2937; line-height: 1.3;'>10 Tips for Better Productivity</h3><p style='color: #6b7280; margin: 0 0 15px 0; font-size: 15px; line-height: 1.7; font-family: sans-serif;'>Boost your productivity with these proven tips and techniques. From time management to workspace organization, learn how to get more done.</p><div style='font-size: 12px; color: #9ca3af; font-family: sans-serif;'>By Mike Chen · Nov 4, 2025 · 4 min read</div>"
+                  },
+                  "parameters": {},
+                  "apiActions": [],
+                  "m_cNavigationLinks": [],
+                  "pseudoStyles": {
+                    "hover": {
+                      "transform": "translateX(5px)",
+                      "boxShadow": "0 4px 16px rgba(0,0,0,0.1)"
+                    },
+                    "active": {},
+                    "focus": {},
+                    "before": {},
+                    "after": {}
+                  },
+                  "children": []
+                },
+                {
+                  "id": "article_item_4",
+                  "type": "card",
+                  "attributes": {
+                    "style": {
+                      "background": "#fff",
+                      "borderRadius": "12px",
+                      "padding": "30px",
+                      "cursor": "pointer",
+                      "transition": "all 0.3s ease",
+                      "boxShadow": "0 2px 8px rgba(0,0,0,0.06)",
+                      "borderLeft": "4px solid #43e97b"
+                    },
+                    "className": "",
+                    "innerHTML": "<div style='font-size: 11px; color: #43e97b; font-weight: 600; margin-bottom: 10px; font-family: sans-serif; text-transform: uppercase; letter-spacing: 1px;'>Business</div><h3 style='margin: 0 0 12px 0; font-size: 26px; color: #1f2937; line-height: 1.3;'>Building a Successful Startup</h3><p style='color: #6b7280; margin: 0 0 15px 0; font-size: 15px; line-height: 1.7; font-family: sans-serif;'>Insights from successful entrepreneurs on building and scaling a startup from the ground up. Learn the key strategies for success.</p><div style='font-size: 12px; color: #9ca3af; font-family: sans-serif;'>By Emma Davis · Nov 3, 2025 · 6 min read</div>"
+                  },
+                  "parameters": {},
+                  "apiActions": [],
+                  "m_cNavigationLinks": [],
+                  "pseudoStyles": {
+                    "hover": {
+                      "transform": "translateX(5px)",
+                      "boxShadow": "0 4px 16px rgba(0,0,0,0.1)"
+                    },
+                    "active": {},
+                    "focus": {},
+                    "before": {},
+                    "after": {}
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "description": "Browse all articles",
+        "keywords": "articles, blog posts"
+      }
+    },
+    {
+      "id": "page_article_1",
+      "title": "The Future of Web Development",
+      "route": "/article/future-web-dev",
+      "icon": "🚀",
+      "elements": [
+        {
+          "id": "header_article",
+          "type": "navbar",
+          "attributes": {
+            "style": {
+              "background": "#fff",
+              "borderBottom": "1px solid #e5e7eb",
+              "padding": "25px 80px",
+              "width": "100%",
+              "display": "flex",
+              "alignItems": "center",
+              "justifyContent": "space-between",
+              "position": "sticky",
+              "top": "0",
+              "zIndex": "1000"
+            },
+            "className": "",
+            "innerHTML": "<div style='font-size: 32px; font-weight: bold; color: #1f2937;'>✍️ The Creative Blog</div>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "nav_back",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#4b5563",
+                  "fontWeight": "500",
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+                },
+                "className": "",
+                "innerHTML": "← Back to Articles"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_articles",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "color": "#6366f1"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "article_hero",
+          "type": "div",
+          "attributes": {
+            "style": {
+              "background": "linear-gradient(135deg, #667eea, #764ba2)",
+              "height": "400px",
+              "display": "flex",
+              "alignItems": "center",
+              "justifyContent": "center",
+              "fontSize": "120px"
+            },
+            "className": "",
+            "innerHTML": "🚀"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": []
+        },
+        {
+          "id": "article_content",
+          "type": "div",
+          "attributes": {
+            "style": {
+              "maxWidth": "800px",
+              "margin": "0 auto",
+              "padding": "60px 40px"
+            },
+            "className": "",
+            "innerHTML": "<div style='font-size: 12px; color: #6366f1; font-weight: 600; margin-bottom: 15px; font-family: sans-serif; text-transform: uppercase; letter-spacing: 1px;'>Technology</div><h1 style='margin: 0 0 20px 0; font-size: 48px; color: #1f2937; line-height: 1.2;'>The Future of Web Development</h1><div style='display: flex; align-items: center; gap: 15px; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid #e5e7eb; font-family: sans-serif;'><div style='width: 50px; height: 50px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%;'></div><div><div style='font-size: 16px; font-weight: 600; color: #1f2937;'>John Smith</div><div style='font-size: 14px; color: #9ca3af;'>Nov 6, 2025 · 5 min read</div></div></div><div style='font-family: sans-serif; font-size: 18px; line-height: 1.8; color: #374151;'><p style='margin: 0 0 25px 0;'>The landscape of web development is constantly evolving, with new technologies and frameworks emerging every year. As we look ahead to the future, several key trends are shaping how we build and interact with the web.</p><h2 style='margin: 40px 0 20px 0; font-size: 32px; color: #1f2937;'>Modern Frameworks</h2><p style='margin: 0 0 25px 0;'>Modern JavaScript frameworks like React, Vue, and Angular continue to dominate the front-end development space. These tools provide developers with powerful ways to build interactive, performant web applications.</p><h2 style='margin: 40px 0 20px 0; font-size: 32px; color: #1f2937;'>The Rise of AI</h2><p style='margin: 0 0 25px 0;'>Artificial Intelligence is becoming increasingly integrated into web development workflows, from code generation to automated testing and optimization.</p><h2 style='margin: 40px 0 20px 0; font-size: 32px; color: #1f2937;'>Conclusion</h2><p style='margin: 0;'>The future of web development is bright and full of possibilities. By staying current with these trends and continuously learning, developers can build amazing experiences for users worldwide.</p></div>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": []
+        }
+      ],
+      "meta": {
+        "description": "Exploring the future of web development",
+        "keywords": "web development, technology, future"
+      }
+    },
+    {
+      "id": "page_about",
+      "title": "About",
+      "route": "/about",
+      "icon": "ℹ️",
+      "elements": [
+        {
+          "id": "header_about",
+          "type": "navbar",
+          "attributes": {
+            "style": {
+              "background": "#fff",
+              "borderBottom": "1px solid #e5e7eb",
+              "padding": "25px 80px",
+              "width": "100%",
+              "display": "flex",
+              "alignItems": "center",
+              "justifyContent": "space-between",
+              "position": "sticky",
+              "top": "0",
+              "zIndex": "1000"
+            },
+            "className": "",
+            "innerHTML": "<div style='font-size: 32px; font-weight: bold; color: #1f2937;'>✍️ The Creative Blog</div>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "nav_home_about",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#4b5563",
+                  "fontWeight": "500",
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+                },
+                "className": "",
+                "innerHTML": "Home"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_home",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "color": "#6366f1"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "nav_articles_about",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#4b5563",
+                  "fontWeight": "500",
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                  "marginLeft": "15px"
+                },
+                "className": "",
+                "innerHTML": "Articles"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_articles",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "color": "#6366f1"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "nav_about_active",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#6366f1",
+                  "fontWeight": "600",
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                  "marginLeft": "15px",
+                  "borderBottom": "2px solid #6366f1"
+                },
+                "className": "",
+                "innerHTML": "About"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_about",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "color": "#4f46e5"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "about_content",
+          "type": "div",
+          "attributes": {
+            "style": {
+              "maxWidth": "900px",
+              "margin": "0 auto",
+              "padding": "80px 40px",
+              "textAlign": "center"
+            },
+            "className": "",
+            "innerHTML": "<h1 style='margin: 0 0 30px 0; font-size: 56px; color: #1f2937;'>About The Creative Blog</h1><p style='font-size: 20px; line-height: 1.8; color: #6b7280; margin: 0 0 50px 0; font-family: sans-serif;'>We're a community of writers, thinkers, and creators sharing stories, insights, and expertise on topics ranging from technology to design, productivity to business.</p><div style='display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px;'><div><div style='font-size: 48px; margin-bottom: 15px;'>✍️</div><h3 style='margin: 0 0 10px 0; font-size: 24px; color: #1f2937;'>Quality Content</h3><p style='color: #6b7280; margin: 0; font-family: sans-serif; line-height: 1.6;'>Carefully crafted articles by expert writers</p></div><div><div style='font-size: 48px; margin-bottom: 15px;'>🌍</div><h3 style='margin: 0 0 10px 0; font-size: 24px; color: #1f2937;'>Global Community</h3><p style='color: #6b7280; margin: 0; font-family: sans-serif; line-height: 1.6;'>Readers and writers from around the world</p></div><div><div style='font-size: 48px; margin-bottom: 15px;'>💡</div><h3 style='margin: 0 0 10px 0; font-size: 24px; color: #1f2937;'>Fresh Ideas</h3><p style='color: #6b7280; margin: 0; font-family: sans-serif; line-height: 1.6;'>New perspectives and innovative thinking</p></div></div>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": []
+        }
+      ],
+      "meta": {
+        "description": "About The Creative Blog",
+        "keywords": "about, blog, community"
+      }
+    }
+  ],
+  "currentPageId": "page_home",
+  "timestamp": "2025-11-06T14:00:00.000Z"
+}

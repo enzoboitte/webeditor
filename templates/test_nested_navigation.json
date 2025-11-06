@@ -1,0 +1,338 @@
+{
+  "version": "2.3",
+  "body": {
+    "style": {
+      "background": "#f5f5f5",
+      "margin": "0",
+      "padding": "0"
+    },
+    "className": "",
+    "pseudoStyles": {
+      "hover": {},
+      "active": {},
+      "focus": {},
+      "before": {},
+      "after": {}
+    }
+  },
+  "pages": [
+    {
+      "id": "page_home",
+      "title": "Home",
+      "route": "/",
+      "icon": "🏠",
+      "favicon": "favicon.ico",
+      "isMainPage": true,
+      "elements": [
+        {
+          "id": "container_main",
+          "type": "div",
+          "attributes": {
+            "style": {
+              "padding": "40px",
+              "display": "flex",
+              "flexDirection": "column",
+              "gap": "20px"
+            },
+            "className": "",
+            "innerHTML": ""
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "nav_button_about",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "background": "linear-gradient(135deg, #667eea, #764ba2)",
+                  "color": "#fff",
+                  "padding": "20px 30px",
+                  "borderRadius": "8px",
+                  "cursor": "pointer",
+                  "textAlign": "center",
+                  "fontWeight": "bold",
+                  "fontSize": "18px",
+                  "transition": "transform 0.3s ease"
+                },
+                "className": "",
+                "innerHTML": "Aller vers About (Enfant de container)"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_about",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "transform": "scale(1.05)"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "nested_container",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "background": "#fff",
+                  "padding": "30px",
+                  "borderRadius": "12px",
+                  "boxShadow": "0 2px 8px rgba(0,0,0,0.1)"
+                },
+                "className": "",
+                "innerHTML": ""
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [],
+              "pseudoStyles": {
+                "hover": {},
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": [
+                {
+                  "id": "deeply_nested_button",
+                  "type": "div",
+                  "attributes": {
+                    "style": {
+                      "background": "linear-gradient(135deg, #f093fb, #f5576c)",
+                      "color": "#fff",
+                      "padding": "20px 30px",
+                      "borderRadius": "8px",
+                      "cursor": "pointer",
+                      "textAlign": "center",
+                      "fontWeight": "bold",
+                      "fontSize": "18px",
+                      "transition": "transform 0.3s ease"
+                    },
+                    "className": "",
+                    "innerHTML": "Aller vers Contact (Enfant profond)"
+                  },
+                  "parameters": {},
+                  "apiActions": [],
+                  "m_cNavigationLinks": [
+                    {
+                      "targetPage": "page_contact",
+                      "action": "click"
+                    }
+                  ],
+                  "pseudoStyles": {
+                    "hover": {
+                      "transform": "scale(1.05)"
+                    },
+                    "active": {},
+                    "focus": {},
+                    "before": {},
+                    "after": {}
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "direct_nav",
+          "type": "div",
+          "attributes": {
+            "style": {
+              "background": "linear-gradient(135deg, #4facfe, #00f2fe)",
+              "color": "#fff",
+              "padding": "20px 30px",
+              "margin": "0 40px",
+              "borderRadius": "8px",
+              "cursor": "pointer",
+              "textAlign": "center",
+              "fontWeight": "bold",
+              "fontSize": "18px",
+              "transition": "transform 0.3s ease"
+            },
+            "className": "",
+            "innerHTML": "Aller vers About (Racine)"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [
+            {
+              "targetPage": "page_about",
+              "action": "click"
+            }
+          ],
+          "pseudoStyles": {
+            "hover": {
+              "transform": "scale(1.05)"
+            },
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": []
+        }
+      ],
+      "meta": {
+        "description": "Page d'accueil - Test navigation",
+        "keywords": "home, test"
+      }
+    },
+    {
+      "id": "page_about",
+      "title": "About",
+      "route": "/about",
+      "icon": "ℹ️",
+      "elements": [
+        {
+          "id": "about_content",
+          "type": "div",
+          "attributes": {
+            "style": {
+              "padding": "40px",
+              "textAlign": "center"
+            },
+            "className": "",
+            "innerHTML": "<h1>Page About</h1><p>Vous êtes arrivé sur la page About !</p>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "back_button",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "background": "#333",
+                  "color": "#fff",
+                  "padding": "15px 25px",
+                  "borderRadius": "6px",
+                  "cursor": "pointer",
+                  "display": "inline-block",
+                  "marginTop": "20px"
+                },
+                "className": "",
+                "innerHTML": "← Retour Home"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_home",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {},
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "description": "Page About",
+        "keywords": "about"
+      }
+    },
+    {
+      "id": "page_contact",
+      "title": "Contact",
+      "route": "/contact",
+      "icon": "📧",
+      "elements": [
+        {
+          "id": "contact_content",
+          "type": "div",
+          "attributes": {
+            "style": {
+              "padding": "40px",
+              "textAlign": "center"
+            },
+            "className": "",
+            "innerHTML": "<h1>Page Contact</h1><p>Vous êtes arrivé via le bouton profondément imbriqué !</p>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "back_home",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "background": "#667eea",
+                  "color": "#fff",
+                  "padding": "15px 25px",
+                  "borderRadius": "6px",
+                  "cursor": "pointer",
+                  "display": "inline-block",
+                  "marginTop": "20px"
+                },
+                "className": "",
+                "innerHTML": "← Retour Home"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_home",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {},
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "description": "Page Contact",
+        "keywords": "contact"
+      }
+    }
+  ],
+  "currentPageId": "page_home",
+  "timestamp": "2025-11-06T14:30:00.000Z"
+}

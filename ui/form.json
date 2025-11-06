@@ -1,0 +1,40 @@
+{
+  "name": "Form",
+  "icon": "📋",
+  "category": "html",
+  "parameters": {
+    "title": {
+      "type": "text",
+      "default": "Formulaire",
+      "label": "Titre"
+    },
+    "submitText": {
+      "type": "text",
+      "default": "Envoyer",
+      "label": "Texte du bouton"
+    },
+    "fields": {
+      "type": "text",
+      "default": "Nom,Email,Message",
+      "label": "Champs (séparé par virgule)"
+    }
+  },
+  "html": "<form class='{{CLASS}}'>\n  <h3>{{title}}</h3>\n  {{FIELDS_HTML}}\n  <button type='submit'>{{submitText}}</button>\n</form>",
+  "css": {
+    "background": "#f8f9fa",
+    "padding": "20px",
+    "borderRadius": "8px",
+    "width": "400px",
+    "height": "auto"
+  },
+  "macros": {
+    "FIELDS_HTML": "{{fields|split:,|map:<div><label>$</label><input type='text' name='$' /></div>|join:}}"
+  },
+  "actions": [
+    {
+      "event": "click",
+      "type": "api",
+      "label": "Soumettre le formulaire"
+    }
+  ]
+}

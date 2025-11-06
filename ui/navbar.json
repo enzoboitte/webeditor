@@ -1,0 +1,53 @@
+{
+  "name": "Navbar",
+  "icon": "🧭",
+  "category": "ui",
+  "parameters": {
+    "logo": {
+      "type": "text",
+      "default": "Logo",
+      "label": "Logo"
+    },
+    "menuItems": {
+      "type": "text",
+      "default": "Home,About,Contact",
+      "label": "Menu (séparé par virgule)"
+    },
+    "theme": {
+      "type": "select",
+      "options": ["dark", "light"],
+      "default": "dark",
+      "label": "Thème"
+    }
+  },
+  "html": "<nav class='{{CLASS}}'>\n  <div class='nav-logo'>{{logo}}</div>\n  <div class='nav-menu'>{{MENU_HTML}}</div>\n</nav>",
+  "css": {
+    "background": "{{THEME_BG}}",
+    "color": "{{THEME_COLOR}}",
+    "padding": "15px 20px",
+    "width": "100%",
+    "height": "60px",
+    "display": "flex",
+    "alignItems": "center",
+    "justifyContent": "space-between",
+    "gap": "20px"
+  },
+  "macros": {
+    "THEME_BG": {
+      "dark": "#2d2d2d",
+      "light": "#f8f9fa"
+    },
+    "THEME_COLOR": {
+      "dark": "#fff",
+      "light": "#333"
+    },
+    "MENU_HTML": "{{menuItems|split:,|map:<a href='#'>$</a>|join: }}"
+  },
+  "actions": [
+    {
+      "event": "load",
+      "type": "api",
+      "label": "Charger données menu"
+    }
+  ]
+}

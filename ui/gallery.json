@@ -1,0 +1,40 @@
+{
+  "name": "Image Gallery",
+  "icon": "🖼️",
+  "category": "ui",
+  "parameters": {
+    "columns": {
+      "type": "select",
+      "options": ["2", "3", "4", "5"],
+      "default": "3",
+      "label": "Nombre de colonnes"
+    },
+    "gap": {
+      "type": "text",
+      "default": "10px",
+      "label": "Espacement"
+    }
+  },
+  "html": "<div class='{{CLASS}} gallery'>\n  <div class='gallery-item'><img src='https://via.placeholder.com/300' /></div>\n  <div class='gallery-item'><img src='https://via.placeholder.com/300' /></div>\n  <div class='gallery-item'><img src='https://via.placeholder.com/300' /></div>\n</div>",
+  "css": {
+    "display": "grid",
+    "gridTemplateColumns": "repeat({{columns}}, 1fr)",
+    "gap": "{{gap}}",
+    "width": "100%",
+    "height": "auto",
+    "padding": "20px"
+  },
+  "macros": {},
+  "actions": [
+    {
+      "event": "load",
+      "type": "api",
+      "label": "Charger images depuis API"
+    },
+    {
+      "event": "click",
+      "type": "api",
+      "label": "Clic sur image"
+    }
+  ]
+}

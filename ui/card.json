@@ -1,0 +1,57 @@
+{
+  "name": "Card",
+  "icon": "🎴",
+  "category": "ui",
+  "parameters": {
+    "title": {
+      "type": "text",
+      "default": "Card Title",
+      "label": "Titre"
+    },
+    "content": {
+      "type": "textarea",
+      "default": "Card content goes here...",
+      "label": "Contenu"
+    },
+    "width": {
+      "type": "text",
+      "default": "300px",
+      "label": "Largeur"
+    },
+    "shadow": {
+      "type": "select",
+      "options": ["none", "small", "medium", "large"],
+      "default": "medium",
+      "label": "Ombre"
+    }
+  },
+  "html": "<div class='{{CLASS}}'>\n  <h3 style='margin-bottom:10px'>{{title}}</h3>\n  <p>{{content}}</p>\n</div>",
+  "css": {
+    "background": "#fff",
+    "borderRadius": "8px",
+    "boxShadow": "{{SHADOW}}",
+    "padding": "20px",
+    "width": "{{width}}",
+    "height": "auto"
+  },
+  "macros": {
+    "SHADOW": {
+      "none": "none",
+      "small": "0 1px 3px rgba(0,0,0,0.1)",
+      "medium": "0 2px 8px rgba(0,0,0,0.1)",
+      "large": "0 4px 16px rgba(0,0,0,0.2)"
+    }
+  },
+  "actions": [
+    {
+      "event": "click",
+      "type": "api",
+      "label": "Au clic"
+    },
+    {
+      "event": "load",
+      "type": "api",
+      "label": "Au chargement"
+    }
+  ]
+}

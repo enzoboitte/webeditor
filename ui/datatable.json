@@ -1,0 +1,50 @@
+{
+  "name": "DataTable",
+  "icon": "📊",
+  "category": "ui",
+  "parameters": {
+    "columns": {
+      "type": "text",
+      "default": "Name,Email,Status",
+      "label": "Colonnes (séparé par virgule)"
+    },
+    "striped": {
+      "type": "checkbox",
+      "default": true,
+      "label": "Lignes alternées"
+    },
+    "bordered": {
+      "type": "checkbox",
+      "default": true,
+      "label": "Bordures"
+    }
+  },
+  "html": "<table class='{{CLASS}}'>\n  <thead>\n    <tr>{{COLUMNS_HTML}}</tr>\n  </thead>\n  <tbody id='{{ID}}-body'>\n    <tr><td colspan='{{COLUMNS_COUNT}}'>Chargement...</td></tr>\n  </tbody>\n</table>",
+  "css": {
+    "width": "100%",
+    "borderCollapse": "collapse",
+    "background": "#fff",
+    "border": "{{BORDERED}}"
+  },
+  "macros": {
+    "COLUMNS_HTML": "{{columns|split:,|map:<th>$</th>|join:}}",
+    "COLUMNS_COUNT": "{{columns|split:,|length}}",
+    "BORDERED": {
+      "true": "1px solid #ddd",
+      "false": "none"
+    }
+  },
+  "actions": [
+    {
+      "event": "load",
+      "type": "api",
+      "label": "Charger données",
+      "required": true
+    },
+    {
+      "event": "click",
+      "type": "api",
+      "label": "Clic sur ligne"
+    }
+  ]
+}

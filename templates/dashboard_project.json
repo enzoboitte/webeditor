@@ -1,0 +1,695 @@
+{
+  "version": "2.3",
+  "body": {
+    "style": {
+      "background": "#f5f7fa",
+      "margin": "0",
+      "padding": "0",
+      "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    },
+    "className": "",
+    "pseudoStyles": {
+      "hover": {},
+      "active": {},
+      "focus": {},
+      "before": {},
+      "after": {}
+    }
+  },
+  "pages": [
+    {
+      "id": "page_dashboard",
+      "title": "Dashboard",
+      "route": "/dashboard",
+      "icon": "📊",
+      "favicon": "favicon.ico",
+      "isMainPage": true,
+      "elements": [
+        {
+          "id": "navbar_main",
+          "type": "navbar",
+          "attributes": {
+            "style": {
+              "background": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              "color": "#fff",
+              "padding": "15px 40px",
+              "width": "100%",
+              "height": "70px",
+              "display": "flex",
+              "alignItems": "center",
+              "justifyContent": "space-between",
+              "position": "sticky",
+              "top": "0",
+              "zIndex": "1000",
+              "boxShadow": "0 2px 8px rgba(0,0,0,0.1)"
+            },
+            "className": "",
+            "innerHTML": "<div style='font-size: 24px; font-weight: bold;'>📊 Admin Dashboard</div>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "nav_dashboard",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "background": "rgba(255,255,255,0.2)",
+                  "borderRadius": "6px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#fff",
+                  "fontWeight": "500"
+                },
+                "className": "",
+                "innerHTML": "Dashboard"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_dashboard",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "background": "rgba(255,255,255,0.3)"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "nav_analytics",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "background": "rgba(255,255,255,0.2)",
+                  "borderRadius": "6px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#fff",
+                  "fontWeight": "500",
+                  "marginLeft": "10px"
+                },
+                "className": "",
+                "innerHTML": "Analytics"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_analytics",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "background": "rgba(255,255,255,0.3)"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "nav_users",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "background": "rgba(255,255,255,0.2)",
+                  "borderRadius": "6px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#fff",
+                  "fontWeight": "500",
+                  "marginLeft": "10px"
+                },
+                "className": "",
+                "innerHTML": "Users"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_users",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "background": "rgba(255,255,255,0.3)"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "stats_container",
+          "type": "div",
+          "attributes": {
+            "style": {
+              "display": "grid",
+              "gridTemplateColumns": "repeat(4, 1fr)",
+              "gap": "20px",
+              "padding": "40px",
+              "width": "100%"
+            },
+            "className": "",
+            "innerHTML": ""
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "stat_users",
+              "type": "card",
+              "attributes": {
+                "style": {
+                  "background": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  "borderRadius": "12px",
+                  "padding": "30px",
+                  "color": "#fff",
+                  "boxShadow": "0 4px 12px rgba(0,0,0,0.1)",
+                  "transition": "transform 0.3s ease"
+                },
+                "className": "",
+                "innerHTML": "<div style='font-size: 14px; opacity: 0.9; margin-bottom: 10px;'>Total Users</div><div style='font-size: 36px; font-weight: bold;'>2,847</div><div style='font-size: 12px; margin-top: 10px; opacity: 0.8;'>↑ 12% this month</div>"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [],
+              "pseudoStyles": {
+                "hover": {
+                  "transform": "translateY(-5px)"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "stat_revenue",
+              "type": "card",
+              "attributes": {
+                "style": {
+                  "background": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+                  "borderRadius": "12px",
+                  "padding": "30px",
+                  "color": "#fff",
+                  "boxShadow": "0 4px 12px rgba(0,0,0,0.1)",
+                  "transition": "transform 0.3s ease"
+                },
+                "className": "",
+                "innerHTML": "<div style='font-size: 14px; opacity: 0.9; margin-bottom: 10px;'>Revenue</div><div style='font-size: 36px; font-weight: bold;'>$45,231</div><div style='font-size: 12px; margin-top: 10px; opacity: 0.8;'>↑ 8% this month</div>"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [],
+              "pseudoStyles": {
+                "hover": {
+                  "transform": "translateY(-5px)"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "stat_orders",
+              "type": "card",
+              "attributes": {
+                "style": {
+                  "background": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+                  "borderRadius": "12px",
+                  "padding": "30px",
+                  "color": "#fff",
+                  "boxShadow": "0 4px 12px rgba(0,0,0,0.1)",
+                  "transition": "transform 0.3s ease"
+                },
+                "className": "",
+                "innerHTML": "<div style='font-size: 14px; opacity: 0.9; margin-bottom: 10px;'>Orders</div><div style='font-size: 36px; font-weight: bold;'>1,423</div><div style='font-size: 12px; margin-top: 10px; opacity: 0.8;'>↑ 23% this month</div>"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [],
+              "pseudoStyles": {
+                "hover": {
+                  "transform": "translateY(-5px)"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "stat_growth",
+              "type": "card",
+              "attributes": {
+                "style": {
+                  "background": "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+                  "borderRadius": "12px",
+                  "padding": "30px",
+                  "color": "#fff",
+                  "boxShadow": "0 4px 12px rgba(0,0,0,0.1)",
+                  "transition": "transform 0.3s ease"
+                },
+                "className": "",
+                "innerHTML": "<div style='font-size: 14px; opacity: 0.9; margin-bottom: 10px;'>Growth</div><div style='font-size: 36px; font-weight: bold;'>32%</div><div style='font-size: 12px; margin-top: 10px; opacity: 0.8;'>↑ 5% this month</div>"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [],
+              "pseudoStyles": {
+                "hover": {
+                  "transform": "translateY(-5px)"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "charts_section",
+          "type": "div",
+          "attributes": {
+            "style": {
+              "padding": "0 40px 40px 40px",
+              "display": "grid",
+              "gridTemplateColumns": "2fr 1fr",
+              "gap": "20px"
+            },
+            "className": "",
+            "innerHTML": ""
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "chart_revenue",
+              "type": "card",
+              "attributes": {
+                "style": {
+                  "background": "#fff",
+                  "borderRadius": "12px",
+                  "padding": "30px",
+                  "boxShadow": "0 2px 8px rgba(0,0,0,0.08)"
+                },
+                "className": "",
+                "innerHTML": "<h3 style='margin: 0 0 20px 0; color: #333;'>Revenue Overview</h3><div style='height: 200px; background: linear-gradient(180deg, rgba(102,126,234,0.1) 0%, rgba(102,126,234,0) 100%); border-radius: 8px; display: flex; align-items: flex-end; padding: 20px; gap: 10px;'><div style='flex: 1; background: #667eea; height: 60%; border-radius: 4px;'></div><div style='flex: 1; background: #667eea; height: 80%; border-radius: 4px;'></div><div style='flex: 1; background: #667eea; height: 50%; border-radius: 4px;'></div><div style='flex: 1; background: #667eea; height: 90%; border-radius: 4px;'></div><div style='flex: 1; background: #667eea; height: 70%; border-radius: 4px;'></div><div style='flex: 1; background: #667eea; height: 100%; border-radius: 4px;'></div></div>"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [],
+              "pseudoStyles": {
+                "hover": {},
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "recent_activity",
+              "type": "card",
+              "attributes": {
+                "style": {
+                  "background": "#fff",
+                  "borderRadius": "12px",
+                  "padding": "30px",
+                  "boxShadow": "0 2px 8px rgba(0,0,0,0.08)"
+                },
+                "className": "",
+                "innerHTML": "<h3 style='margin: 0 0 20px 0; color: #333;'>Recent Activity</h3><div style='display: flex; flex-direction: column; gap: 15px;'><div style='padding: 12px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #667eea;'><div style='font-weight: 500; color: #333; margin-bottom: 4px;'>New user registered</div><div style='font-size: 12px; color: #666;'>2 minutes ago</div></div><div style='padding: 12px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #f5576c;'><div style='font-weight: 500; color: #333; margin-bottom: 4px;'>Order #1234 completed</div><div style='font-size: 12px; color: #666;'>15 minutes ago</div></div><div style='padding: 12px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #43e97b;'><div style='font-weight: 500; color: #333; margin-bottom: 4px;'>Payment received</div><div style='font-size: 12px; color: #666;'>1 hour ago</div></div></div>"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [],
+              "pseudoStyles": {
+                "hover": {},
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "description": "Admin Dashboard - Overview",
+        "keywords": "dashboard, admin, analytics"
+      }
+    },
+    {
+      "id": "page_analytics",
+      "title": "Analytics",
+      "route": "/analytics",
+      "icon": "📈",
+      "elements": [
+        {
+          "id": "navbar_analytics",
+          "type": "navbar",
+          "attributes": {
+            "style": {
+              "background": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              "color": "#fff",
+              "padding": "15px 40px",
+              "width": "100%",
+              "height": "70px",
+              "display": "flex",
+              "alignItems": "center",
+              "justifyContent": "space-between",
+              "position": "sticky",
+              "top": "0",
+              "zIndex": "1000",
+              "boxShadow": "0 2px 8px rgba(0,0,0,0.1)"
+            },
+            "className": "",
+            "innerHTML": "<div style='font-size: 24px; font-weight: bold;'>📈 Analytics</div>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "nav_back_dashboard",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "background": "rgba(255,255,255,0.2)",
+                  "borderRadius": "6px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#fff",
+                  "fontWeight": "500"
+                },
+                "className": "",
+                "innerHTML": "← Back to Dashboard"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_dashboard",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "background": "rgba(255,255,255,0.3)"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "analytics_content",
+          "type": "card",
+          "attributes": {
+            "style": {
+              "background": "#fff",
+              "borderRadius": "12px",
+              "padding": "40px",
+              "margin": "40px",
+              "boxShadow": "0 2px 8px rgba(0,0,0,0.08)"
+            },
+            "className": "",
+            "innerHTML": "<h2 style='margin: 0 0 30px 0; color: #333;'>Detailed Analytics</h2><p style='color: #666; line-height: 1.6;'>This page would contain detailed analytics charts, graphs, and metrics about your application performance, user behavior, and business insights.</p>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": []
+        }
+      ],
+      "meta": {
+        "description": "Analytics Dashboard",
+        "keywords": "analytics, metrics, performance"
+      }
+    },
+    {
+      "id": "page_users",
+      "title": "Users Management",
+      "route": "/users",
+      "icon": "👥",
+      "elements": [
+        {
+          "id": "navbar_users",
+          "type": "navbar",
+          "attributes": {
+            "style": {
+              "background": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              "color": "#fff",
+              "padding": "15px 40px",
+              "width": "100%",
+              "height": "70px",
+              "display": "flex",
+              "alignItems": "center",
+              "justifyContent": "space-between",
+              "position": "sticky",
+              "top": "0",
+              "zIndex": "1000",
+              "boxShadow": "0 2px 8px rgba(0,0,0,0.1)"
+            },
+            "className": "",
+            "innerHTML": "<div style='font-size: 24px; font-weight: bold;'>👥 Users Management</div>"
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "nav_back_dashboard_users",
+              "type": "div",
+              "attributes": {
+                "style": {
+                  "padding": "10px 20px",
+                  "background": "rgba(255,255,255,0.2)",
+                  "borderRadius": "6px",
+                  "cursor": "pointer",
+                  "transition": "all 0.3s ease",
+                  "color": "#fff",
+                  "fontWeight": "500"
+                },
+                "className": "",
+                "innerHTML": "← Back to Dashboard"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [
+                {
+                  "targetPage": "page_dashboard",
+                  "action": "click"
+                }
+              ],
+              "pseudoStyles": {
+                "hover": {
+                  "background": "rgba(255,255,255,0.3)"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "users_grid",
+          "type": "div",
+          "attributes": {
+            "style": {
+              "display": "grid",
+              "gridTemplateColumns": "repeat(3, 1fr)",
+              "gap": "20px",
+              "padding": "40px"
+            },
+            "className": "",
+            "innerHTML": ""
+          },
+          "parameters": {},
+          "apiActions": [],
+          "m_cNavigationLinks": [],
+          "pseudoStyles": {
+            "hover": {},
+            "active": {},
+            "focus": {},
+            "before": {},
+            "after": {}
+          },
+          "children": [
+            {
+              "id": "user_card_1",
+              "type": "card",
+              "attributes": {
+                "style": {
+                  "background": "#fff",
+                  "borderRadius": "12px",
+                  "padding": "25px",
+                  "boxShadow": "0 2px 8px rgba(0,0,0,0.08)",
+                  "transition": "transform 0.3s ease"
+                },
+                "className": "",
+                "innerHTML": "<div style='display: flex; align-items: center; gap: 15px; margin-bottom: 15px;'><div style='width: 60px; height: 60px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;'>👤</div><div><div style='font-weight: 600; color: #333;'>John Doe</div><div style='font-size: 14px; color: #666;'>john@example.com</div></div></div><div style='padding-top: 15px; border-top: 1px solid #eee;'><div style='font-size: 12px; color: #999;'>Role: Admin</div></div>"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [],
+              "pseudoStyles": {
+                "hover": {
+                  "transform": "translateY(-5px)"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "user_card_2",
+              "type": "card",
+              "attributes": {
+                "style": {
+                  "background": "#fff",
+                  "borderRadius": "12px",
+                  "padding": "25px",
+                  "boxShadow": "0 2px 8px rgba(0,0,0,0.08)",
+                  "transition": "transform 0.3s ease"
+                },
+                "className": "",
+                "innerHTML": "<div style='display: flex; align-items: center; gap: 15px; margin-bottom: 15px;'><div style='width: 60px; height: 60px; background: linear-gradient(135deg, #f093fb, #f5576c); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;'>👤</div><div><div style='font-weight: 600; color: #333;'>Jane Smith</div><div style='font-size: 14px; color: #666;'>jane@example.com</div></div></div><div style='padding-top: 15px; border-top: 1px solid #eee;'><div style='font-size: 12px; color: #999;'>Role: Editor</div></div>"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [],
+              "pseudoStyles": {
+                "hover": {
+                  "transform": "translateY(-5px)"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            },
+            {
+              "id": "user_card_3",
+              "type": "card",
+              "attributes": {
+                "style": {
+                  "background": "#fff",
+                  "borderRadius": "12px",
+                  "padding": "25px",
+                  "boxShadow": "0 2px 8px rgba(0,0,0,0.08)",
+                  "transition": "transform 0.3s ease"
+                },
+                "className": "",
+                "innerHTML": "<div style='display: flex; align-items: center; gap: 15px; margin-bottom: 15px;'><div style='width: 60px; height: 60px; background: linear-gradient(135deg, #4facfe, #00f2fe); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;'>👤</div><div><div style='font-weight: 600; color: #333;'>Mike Johnson</div><div style='font-size: 14px; color: #666;'>mike@example.com</div></div></div><div style='padding-top: 15px; border-top: 1px solid #eee;'><div style='font-size: 12px; color: #999;'>Role: User</div></div>"
+              },
+              "parameters": {},
+              "apiActions": [],
+              "m_cNavigationLinks": [],
+              "pseudoStyles": {
+                "hover": {
+                  "transform": "translateY(-5px)"
+                },
+                "active": {},
+                "focus": {},
+                "before": {},
+                "after": {}
+              },
+              "children": []
+            }
+          ]
+        }
+      ],
+      "meta": {
+        "description": "User Management",
+        "keywords": "users, management, admin"
+      }
+    }
+  ],
+  "currentPageId": "page_dashboard",
+  "timestamp": "2025-11-06T14:00:00.000Z"
+}

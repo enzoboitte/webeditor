@@ -1,0 +1,86 @@
+{
+  "name": "Pricing Card",
+  "icon": "💰",
+  "category": "ui",
+  "parameters": {
+    "plan": {
+      "type": "text",
+      "default": "Premium",
+      "label": "Nom du plan"
+    },
+    "price": {
+      "type": "text",
+      "default": "29€",
+      "label": "Prix"
+    },
+    "period": {
+      "type": "select",
+      "options": ["mois", "an", "semaine"],
+      "default": "mois",
+      "label": "Période"
+    },
+    "features": {
+      "type": "textarea",
+      "default": "Accès illimité\nSupport 24/7\n100GB stockage\nAPI Access",
+      "label": "Fonctionnalités (une par ligne)"
+    },
+    "highlighted": {
+      "type": "checkbox",
+      "default": false,
+      "label": "Plan recommandé"
+    },
+    "color": {
+      "type": "select",
+      "options": ["blue", "green", "purple", "orange"],
+      "default": "blue",
+      "label": "Couleur du thème"
+    }
+  },
+  "html": "<div class='{{CLASS}} pricing-card'>\n  <div class='plan-header'>\n    <h3>{{plan}}</h3>\n    <span class='badge'>Recommandé</span>\n  </div>\n  <div class='price-container'>\n    <span class='price'>{{price}}</span>\n    <span class='period'>/{{period}}</span>\n  </div>\n  <ul class='features-list'>\n    <li>{{features}}</li>\n  </ul>\n  <button class='btn-subscribe'>S'abonner</button>\n</div>",
+  "css": {
+    "background": "#ffffff",
+    "padding": "30px",
+    "borderRadius": "16px",
+    "boxShadow": "0 4px 20px rgba(0,0,0,0.08)",
+    "width": "320px",
+    "height": "auto",
+    "textAlign": "center",
+    "border": "{{HIGHLIGHT_BORDER}}",
+    "transform": "{{HIGHLIGHT_SCALE}}",
+    "transition": "all 0.3s ease"
+  },
+  "macros": {
+    "COLOR_PRIMARY": {
+      "blue": "#0078d4",
+      "green": "#28a745",
+      "purple": "#764ba2",
+      "orange": "#ff6b6b"
+    },
+    "COLOR_BG": {
+      "blue": "#e3f2fd",
+      "green": "#e8f5e9",
+      "purple": "#f3e5f5",
+      "orange": "#fff3e0"
+    },
+    "HIGHLIGHT_BORDER": {
+      "true": "3px solid #0078d4",
+      "false": "1px solid #e0e0e0"
+    },
+    "HIGHLIGHT_SCALE": {
+      "true": "scale(1.05)",
+      "false": "scale(1)"
+    }
+  },
+  "actions": [
+    {
+      "event": "load",
+      "type": "api",
+      "label": "Charger détails du plan depuis API"
+    },
+    {
+      "event": "click",
+      "type": "api",
+      "label": "Créer souscription"
+    }
+  ]
+}

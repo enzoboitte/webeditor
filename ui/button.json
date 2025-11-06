@@ -1,0 +1,66 @@
+{
+  "name": "Button",
+  "icon": "🔘",
+  "category": "html",
+  "parameters": {
+    "text": {
+      "type": "text",
+      "default": "Click me",
+      "label": "Texte"
+    },
+    "variant": {
+      "type": "select",
+      "options": ["primary", "secondary", "danger", "success"],
+      "default": "primary",
+      "label": "Variante"
+    },
+    "size": {
+      "type": "select",
+      "options": ["small", "medium", "large"],
+      "default": "medium",
+      "label": "Taille"
+    }
+  },
+  "html": "<button class='{{CLASS}}'>{{text}}</button>",
+  "css": {
+    "background": "{{VARIANT_BG}}",
+    "color": "#fff",
+    "border": "none",
+    "borderRadius": "4px",
+    "padding": "{{SIZE_PADDING}}",
+    "fontSize": "{{SIZE_FONT}}",
+    "cursor": "pointer",
+    "width": "auto",
+    "height": "auto"
+  },
+  "macros": {
+    "VARIANT_BG": {
+      "primary": "#0078d4",
+      "secondary": "#6c757d",
+      "danger": "#dc3545",
+      "success": "#28a745"
+    },
+    "SIZE_PADDING": {
+      "small": "6px 12px",
+      "medium": "10px 20px",
+      "large": "14px 28px"
+    },
+    "SIZE_FONT": {
+      "small": "12px",
+      "medium": "14px",
+      "large": "16px"
+    }
+  },
+  "actions": [
+    {
+      "event": "click",
+      "type": "api",
+      "label": "Au clic"
+    },
+    {
+      "event": "dblclick",
+      "type": "api",
+      "label": "Au double-clic"
+    }
+  ]
+}

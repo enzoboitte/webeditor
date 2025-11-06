@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créateur de Composants UI</title>
+    
+    <!-- Bibliothèques externes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Styles spécifiques pour le créateur de composants */
+        #G_sComponentsLibrary {
+            position: fixed;
+            left: 0;
+            top: 60px;
+            bottom: 0;
+            width: 280px;
+            background: #1e1e1e;
+            border-right: 1px solid #333;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        #G_sComponentWorkspace {
+            position: fixed;
+            left: 280px;
+            top: 60px;
+            right: 350px;
+            bottom: 0;
+            background: #2d2d2d;
+            overflow: auto;
+        }
+        
+        #G_sComponentProperties {
+            position: fixed;
+            right: 0;
+            top: 60px;
+            bottom: 0;
+            width: 350px;
+            background: #1e1e1e;
+            border-left: 1px solid #333;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .c-component-list-item {
+            background: #2d2d2d;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .c-component-list-item:hover {
+            background: #3d3d3d;
+            transform: translateX(5px);
+        }
+        
+        .c-component-list-item.active {
+            background: #0078d4;
+        }
+        
+        .c-component-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .c-component-actions button {
+            background: transparent;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 5px 8px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .c-component-actions button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .c-component-preview {
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 20px;
+            min-height: 400px;
+        }
+        
+        .c-new-component-btn {
+            width: 100%;
+            padding: 12px;
+            background: #28a745;
+            border: none;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: background 0.2s;
+        }
+        
+        .c-new-component-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div id="G_sTopBar">
+        <div class="c-topbar-logo">
+            <i class="fas fa-cube"></i>
+            <span class="c-logo-text">Créateur de Composants</span>
+        </div>
+        
+        <div class="c-topbar-separator"></div>
+        
+        <div class="c-topbar-group">
+            <button class="c-btn c-btn-primary" onclick="G_cComponentCreator.f_vSaveComponent()" title="Sauvegarder le composant">
+                <i class="fas fa-save"></i> Sauvegarder
+            </button>
+        </div>
+        
+        <div class="c-topbar-group">
+            <button class="c-btn c-btn-secondary" onclick="G_cComponentCreator.f_vExportComponent()" title="Exporter le composant">
+                <i class="fas fa-download"></i> Exporter
+            </button>
+        </div>
+        
+        <div class="c-topbar-spacer"></div>
+        
+        <div class="c-topbar-group">
+            <button class="c-btn c-btn-info" onclick="window.close()" title="Retour à l'éditeur">
+                <i class="fas fa-arrow-left"></i> Retour
+            </button>
+        </div>
+    </div>
+    
+    <!-- Bibliothèque de composants (gauche) -->
+    <div id="G_sComponentsLibrary">
+        <button class="c-new-component-btn" onclick="G_cComponentCreator.f_vCreateNewComponent()">
+            <i class="fas fa-plus"></i> Nouveau Composant
+        </button>
+        
+        <h3 style="color: #999; margin-bottom: 15px; font-size: 14px;">
+            <i class="fas fa-folder"></i> Mes Composants
+        </h3>
+        
+        <div id="G_sComponentsList">
+            <!-- Liste des composants créés -->
+        </div>
+    </div>
+    
+    <!-- Workspace de création (centre) -->
+    <div id="G_sComponentWorkspace">
+        <div class="c-component-preview" id="G_sComponentPreview">
+            <!-- Prévisualisation du composant en cours de création -->
+            <div style="text-align: center; color: #999; padding: 60px;">
+                <i class="fas fa-cube" style="font-size: 48px; margin-bottom: 20px; display: block;"></i>
+                <p>Créez un nouveau composant ou sélectionnez-en un existant</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Propriétés du composant (droite) -->
+    <div id="G_sComponentProperties">
+        <div id="G_sPropertiesContent">
+            <p style="color: #666;">Aucun composant sélectionné</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/ui-templates.js"></script>
+    <script src="js/api-framework.js"></script>
+    <script src="js/element.js"></script>
+    <script src="js/component-creator.js"></script>
+    
+    <script>
+        const G_cComponentCreator = new C_ComponentCreator();
+        window.G_cComponentCreator = G_cComponentCreator;
+    </script>
+</body>
+</html>
