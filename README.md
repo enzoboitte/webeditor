@@ -1218,8 +1218,9 @@ Tous droits réservés
 
 <div align="center">
 
-**Fait avec ❤️ pour simplifier la création web**
+**Fait pour tous afin de simplifier la création web**
 
 [⬆️ Retour en haut](#-web-editor)
 
 </div>
+
